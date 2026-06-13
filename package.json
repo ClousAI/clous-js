@@ -1,0 +1,62 @@
+{
+  "name": "@clous/sdk",
+  "version": "0.1.0",
+  "description": "Official TypeScript/Node SDK for the Clous SEC/EDGAR API — entity-resolved SEC filings, ownership, financials, events & monitors for humans and AI agents.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "clous",
+    "sec",
+    "edgar",
+    "filings",
+    "13f",
+    "form-adv",
+    "insider",
+    "xbrl",
+    "financials",
+    "openai-compatible",
+    "ai-agents",
+    "sdk",
+    "typescript"
+  ],
+  "author": "Clous",
+  "license": "MIT",
+  "homepage": "https://clous.ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clousai/clous-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/clousai/clous-js/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
