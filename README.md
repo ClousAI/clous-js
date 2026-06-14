@@ -1,23 +1,29 @@
-# @clousai/sdk
+<div align="center">
 
-The official **TypeScript / Node** SDK for the [Clous](https://clous.ai) SEC/EDGAR API — entity-resolved SEC filings, ownership, financials, fund holdings, governance, enforcement, and a live business-change **events & monitors** feed, for humans and AI agents.
+# Clous SDK for TypeScript / Node
 
-- Fully typed: params and the response envelope for every endpoint.
-- **Auto-pagination** via async iterators (`for await ... of`).
-- Typed errors with request ids; automatic 429/5xx retries with backoff; timeouts.
-- Zero runtime dependencies — uses the global `fetch` (Node 18+).
-- ESM + CommonJS builds.
-- An **OpenAI-compatible** chat endpoint (`model: "clous"`).
+**Public data intelligence for AI agents — the official TypeScript / Node client.**
 
-## Install
+Entity-resolved SEC/EDGAR filings, ownership, financials, fund holdings, governance, enforcement, and a live business-change **events & monitors** feed — fully typed, for humans and AI agents.
+
+[![npm](https://img.shields.io/npm/v/@clousai/sdk?color=cb3837&label=%40clousai%2Fsdk)](https://www.npmjs.com/package/@clousai/sdk)
+[![Docs](https://img.shields.io/badge/docs-clous.ai-blue)](https://docs.clous.ai)
+[![Built for AI agents](https://img.shields.io/badge/built%20for-AI%20agents-6e56cf)](https://clous.ai)
+[![License: MIT](https://img.shields.io/badge/license-MIT-black)](./LICENSE)
+
+[clous.ai](https://clous.ai) · [docs.clous.ai](https://docs.clous.ai) · [examples](./examples)
+
+</div>
+
+---
+
+## 30-second quickstart
 
 ```bash
 npm install @clousai/sdk
 ```
 
-Requires Node 18+ (for global `fetch`).
-
-## Quickstart
+Get a free key at **[clous.ai](https://clous.ai)** (100 credits, no card), then:
 
 ```ts
 import { Clous } from "@clousai/sdk";
@@ -36,6 +42,17 @@ const revenue = await clous.financials.get("0000320193", { concept: "Revenues" }
 const answer = await clous.answer({ q: "What did NVIDIA most recently disclose?", ticker: "NVDA" });
 console.log(answer.data[0]);
 ```
+
+Requires Node 18+ (for global `fetch`). **SEC/EDGAR is live today; Clous is expanding across public data.**
+
+## Key features
+
+- **Fully typed** — params and the response envelope for every endpoint.
+- **Auto-pagination** via async iterators — `for await (const x of clous.filings.iterate(...))`.
+- **Token-efficient** — `fields` / `output_schema` projection trims payloads before they reach your LLM.
+- **Typed errors** with request ids; automatic 429/5xx retries with backoff + jitter; timeouts.
+- **Zero runtime dependencies** — uses the global `fetch`; ESM + CommonJS builds.
+- **OpenAI-compatible** — `clous.chat.completions.create({ model: "clous" })`, or point the `openai` client at `https://api.clous.ai/v1`.
 
 ## Authentication
 
@@ -193,7 +210,23 @@ The answer is grounded strictly in SEC filing text; citations + a confidence bas
 | `clous.briefing(accession)` | `/v1/filings/{accession}/briefing` |
 | `clous.chat.completions.create(...)` | `/v1/chat/completions` |
 
-See [`examples/`](./examples) for runnable scripts.
+See [`examples/`](./examples) for runnable scripts: `quickstart.ts`, `paginate.ts`, `monitors.ts`, `openai-compatible.ts`.
+
+## Part of the Clous platform
+
+Clous is **public data intelligence for AI agents** — entity-resolved signals from public records and the web, monitored in real time, delivered with citations. SEC/EDGAR is live today; expanding across public data.
+
+| | |
+| --- | --- |
+| **Website** | [clous.ai](https://clous.ai) |
+| **Docs** | [docs.clous.ai](https://docs.clous.ai) · [`llms.txt`](https://docs.clous.ai/llms.txt) |
+| **TS / Node SDK** | [`clous-js`](https://github.com/ClousAI/clous-js) ← you are here |
+| **Python SDK** | [`clous-python`](https://github.com/ClousAI/clous-python) |
+| **MCP server** | [`Mcp`](https://github.com/ClousAI/Mcp) · hosted at [mcp.clous.ai](https://mcp.clous.ai) |
+| **Claude Code plugin** | [`claude-code-plugin`](https://github.com/ClousAI/claude-code-plugin) |
+| **Agent Skill** | [`skill`](https://github.com/ClousAI/skill) |
+| **Recipes** | [`cookbook`](https://github.com/ClousAI/cookbook) |
+| **Framework tools** | [`integrations`](https://github.com/ClousAI/integrations) (LangChain · LlamaIndex · OpenAI · Vercel AI · CrewAI) |
 
 ## License
 
