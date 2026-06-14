@@ -1,8 +1,8 @@
 /**
- * @clous/sdk — the official TypeScript/Node SDK for the Clous SEC/EDGAR API.
+ * @clousai/sdk — the official TypeScript/Node SDK for the Clous SEC/EDGAR API.
  *
  * ```ts
- * import { Clous } from "@clous/sdk";
+ * import { Clous } from "@clousai/sdk";
  * const clous = new Clous({ apiKey: process.env.CLOUS_API_KEY });
  * const { data } = await clous.filings.search({ ticker: "NVDA", form_type: "8-K" });
  * ```

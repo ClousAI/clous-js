@@ -1,4 +1,4 @@
-# @clous/sdk
+# @clousai/sdk
 
 The official **TypeScript / Node** SDK for the [Clous](https://clous.ai) SEC/EDGAR API — entity-resolved SEC filings, ownership, financials, fund holdings, governance, enforcement, and a live business-change **events & monitors** feed, for humans and AI agents.
 
@@ -12,7 +12,7 @@ The official **TypeScript / Node** SDK for the [Clous](https://clous.ai) SEC/EDG
 ## Install
 
 ```bash
-npm install @clous/sdk
+npm install @clousai/sdk
 ```
 
 Requires Node 18+ (for global `fetch`).
@@ -20,7 +20,7 @@ Requires Node 18+ (for global `fetch`).
 ## Quickstart
 
 ```ts
-import { Clous } from "@clous/sdk";
+import { Clous } from "@clousai/sdk";
 
 // apiKey defaults to process.env.CLOUS_API_KEY
 const clous = new Clous({ apiKey: "clous_live_..." });
@@ -104,7 +104,7 @@ for await (const adviser of clous.advisers.iterate({ state: "NY", limit: 100 }))
 Non-2xx responses throw a typed error carrying the HTTP status, the stable Clous error code, the request id, and the parsed body:
 
 ```ts
-import { Clous, ClousNotFoundError, ClousRateLimitError, ClousAPIError } from "@clous/sdk";
+import { Clous, ClousNotFoundError, ClousRateLimitError, ClousAPIError } from "@clousai/sdk";
 
 try {
   await clous.events.get("does-not-exist");

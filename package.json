@@ -1,5 +1,5 @@
 {
-  "name": "@clous/sdk",
+  "name": "@clousai/sdk",
   "version": "0.1.0",
   "description": "Official TypeScript/Node SDK for the Clous SEC/EDGAR API — entity-resolved SEC filings, ownership, financials, events & monitors for humans and AI agents.",
   "type": "module",
